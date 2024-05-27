@@ -13,7 +13,6 @@ RUN cd /etc/yum.repos.d/ \
 
 RUN yum install -y \
   httpd \
-  mod_auth_kerb \
   mod_auth_gssapi \
   mod_session \
   mod_ssl \
