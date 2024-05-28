@@ -1,0 +1,38 @@
+name: Build and publish Docker images
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        pair:
+          - { dir: 'dns', tag: 'dns' }
+          - { dir: 'krb5kdc', tag: 'kdc-centos-default' }
+          - { dir: 'krb5kdc-latest', tag: 'kdc-latest' }
+          - { dir: 'krb5kdc-older', tag: 'kdc-older' }
+          - { dir: 'krb5kdc-res', tag: 'kdc-resdom' }
+          - { dir: 'krb5kdc-shorttickets', tag: 'kdc-shorttickets' }
+          - { dir: 'krb5kdc-sub', tag: 'kdc-sub' }
+          - { dir: 'krbhttp', tag: 'http' }
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Build Docker image
+        run: |
+          docker build -t ghcr.io/grafana/gokrb5-test:${{ matrix.pair.tag }} testenv/docker/${{ matrix.pair.dir }}
+      - name: Log in to GitHub Container Registry
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+        run: |
+          echo "${{ secrets.GITHUB_TOKEN }}" | docker login https://ghcr.io -u ${{ github.actor }} --password-stdin
+      - name: Push Docker image
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+        run: |
+          docker push ghcr.io/grafana/gokrb5-test:${{ matrix.pair.tag }}

@@ -16,7 +16,7 @@ RUN yum install -y \
 
 ADD krb5-1.6.3.tar.gz /tmp
 RUN cd /tmp/krb5-1.6.3/src && \
-  ./configure && make && make install
+  ./configure && make CFLAGS="-fgnu89-inline" && make install
 
 ADD krb5.conf /etc/krb5.conf
 ADD kdc.conf /usr/local/var/krb5kdc/kdc.conf
