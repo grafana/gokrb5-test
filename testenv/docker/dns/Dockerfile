@@ -1,5 +1,4 @@
 FROM debian:latest
-MAINTAINER Jonathan Turner <jt@jtnet.co.uk>
 
 EXPOSE 53
 

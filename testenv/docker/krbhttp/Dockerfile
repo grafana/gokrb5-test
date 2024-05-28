@@ -1,5 +1,4 @@
 FROM centos:latest
-MAINTAINER Jonathan Turner <jt@jtnet.co.uk>
 
 EXPOSE 80 443
 ENV LANG C
