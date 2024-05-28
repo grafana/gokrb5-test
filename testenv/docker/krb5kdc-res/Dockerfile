@@ -1,4 +1,4 @@
-FROM centos:latest
+FROM centos:7
 
 EXPOSE 88
 ENTRYPOINT ["/usr/sbin/krb5kdc", "-n"]
