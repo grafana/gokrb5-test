@@ -19,6 +19,13 @@ RUN yum install -y \
   && yum update -y && yum clean all
 
 RUN mkdir /var/www/html/modkerb && mkdir /var/www/html/modgssapi
+
+RUN mkdir -p /etc/pki/tls/certs /etc/pki/tls/private && \
+    openssl req -new -newkey rsa:2048 -days 365 -nodes -x509 \
+    -subj "/C=US/ST=Test/L=Test/O=Test/OU=Test/CN=localhost" \
+    -keyout /etc/pki/tls/private/localhost.key \
+    -out /etc/pki/tls/certs/localhost.crt
+
 ADD httpd-krb5.conf /etc/httpd/conf.d/
 ADD index.html /var/www/html/modkerb/index.html
 ADD index.html /var/www/html/modgssapi/index.html
