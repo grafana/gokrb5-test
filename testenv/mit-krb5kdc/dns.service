@@ -5,7 +5,7 @@ After=network.target
 Requires=docker.service
 
 [Service]
-Environment="DOCKER_IMAGE=jcmturner/gokrb5:dns"
+Environment="DOCKER_IMAGE=grafana/gokrb5-test:dns"
 Environment="PORT=53"
 Environment="TEST_KDC_ADDR=10.80.88.88"
 TimeoutStartSec=0

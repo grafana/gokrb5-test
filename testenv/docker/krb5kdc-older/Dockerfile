@@ -1,5 +1,4 @@
 FROM centos:latest
-MAINTAINER Jonathan Turner <jt@jtnet.co.uk>
 
 EXPOSE 88
 

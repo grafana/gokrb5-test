@@ -5,7 +5,7 @@ After=network.target
 Requires=docker.service
 
 [Service]
-Environment="DOCKER_IMAGE=jcmturner/gokrb5:http"
+Environment="DOCKER_IMAGE=grafana/gokrb5-test:http"
 TimeoutStartSec=0
 #Restart=always
 ExecStartPre=-/usr/bin/docker kill %n

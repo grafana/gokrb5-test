@@ -5,7 +5,7 @@ After=network.target
 Requires=docker.service
 
 [Service]
-Environment="DOCKER_IMAGE=jcmturner/gokrb5:kdc-centos-default"
+Environment="DOCKER_IMAGE=grafana/gokrb5-test:kdc-centos-default"
 Environment="PORT=88"
 Environment="NAME=gokrb5-kdc-centos-default"
 TimeoutStartSec=0

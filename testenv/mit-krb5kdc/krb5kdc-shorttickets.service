@@ -5,7 +5,7 @@ After=network.target
 Requires=docker.service
 
 [Service]
-Environment="DOCKER_IMAGE=jcmturner/gokrb5:kdc-shorttickets"
+Environment="DOCKER_IMAGE=grafana/gokrb5-test:kdc-shorttickets"
 Environment="PORT=58"
 Environment="NAME=gokrb5-kdc-shorttickets"
 TimeoutStartSec=0

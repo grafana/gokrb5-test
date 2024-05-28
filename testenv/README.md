@@ -8,7 +8,7 @@ There are two options to run these services.
 
 ## Docker Containers
 The Docker containers can be run with the commands you see in the ```Start integration test dependencies``` job of the 
-[testing.yml](https://github.com/jcmturner/gokrb5/blob/master/.github/workflows/testing.yml#L60C15-L60C50) file.
+[testing.yml](https://github.com/grafana/gokrb5/blob/master/.github/workflows/testing.yml#L60C15-L60C50) file.
 You will need to set the environment variable ```TEST_KDC_ADDR``` to "127.0.0.1" when running the integration tests.
 
 ## Vagrant VM Instance

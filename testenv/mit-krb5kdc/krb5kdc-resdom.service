@@ -5,7 +5,7 @@ After=network.target
 Requires=docker.service
 
 [Service]
-Environment="DOCKER_IMAGE=jcmturner/gokrb5:kdc-resdom"
+Environment="DOCKER_IMAGE=grafana/gokrb5-test:kdc-resdom"
 Environment="PORT=188"
 Environment="NAME=gokrb5-kdc-resdom"
 TimeoutStartSec=0
